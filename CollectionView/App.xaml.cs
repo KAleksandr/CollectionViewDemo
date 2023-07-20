@@ -8,6 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new DataView();
+		//MainPage = new DataView();
+		MainPage = new LayautPage();
 	}
 }
