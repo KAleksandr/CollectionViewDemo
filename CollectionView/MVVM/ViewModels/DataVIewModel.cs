@@ -13,7 +13,7 @@ namespace CollectionView.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class DataVIewModel
     {
-        public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>();
         public bool IsRefreshing { get; set; }
         public ICommand RefreshCommand =>
             new Command(async () =>
@@ -23,12 +23,19 @@ namespace CollectionView.MVVM.ViewModels
                 RefreshItems();
                 IsRefreshing = false;
             });
+        public ICommand ThresholdReachedCommand =>
+            new Command(async () =>
+            {
+                RefreshItems(Products.Count);
+            });
         public DataVIewModel() {
             RefreshItems();
         }
-        private void RefreshItems()
+        private void RefreshItems(int lastIndex = 0)
         {
-            Products = new ObservableCollection<Product>
+            int numberOffItemsPerPage = 10;
+
+            var items = new ObservableCollection<Product>
                {
                     new Product
                      {
@@ -441,6 +448,12 @@ namespace CollectionView.MVVM.ViewModels
                          Stock = 9
                      },
                };
+            var pageItems = items.Skip(lastIndex).Take(numberOffItemsPerPage);
+            foreach(var item in pageItems)
+            {
+                Products.Add(item);
+            }
+
         }
     }
 }
