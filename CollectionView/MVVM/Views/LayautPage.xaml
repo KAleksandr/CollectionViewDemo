@@ -5,7 +5,8 @@
              Title="LayautPage">
     <CollectionView ItemsSource="{Binding Products}">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical"/>
+            <LinearItemsLayout Orientation="Horizontal"
+                               ItemSpacing="5"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
