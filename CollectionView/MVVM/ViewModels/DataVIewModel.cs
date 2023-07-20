@@ -1,17 +1,33 @@
 ﻿using CollectionView.MVVM.Models;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace CollectionView.MVVM.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class DataVIewModel
     {
         public ObservableCollection<Product> Products { get; set; }
+        public bool IsRefreshing { get; set; }
+        public ICommand RefreshCommand =>
+            new Command(async () =>
+            {
+                IsRefreshing = true;
+                await Task.Delay(3000);
+                RefreshItems();
+                IsRefreshing = false;
+            });
         public DataVIewModel() {
+            RefreshItems();
+        }
+        private void RefreshItems()
+        {
             Products = new ObservableCollection<Product>
                {
                     new Product
