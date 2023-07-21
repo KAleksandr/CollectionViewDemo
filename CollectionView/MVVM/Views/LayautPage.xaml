@@ -4,13 +4,34 @@
              x:Class="CollectionView.MVVM.Views.LayautPage"
              Title="LayautPage">
     <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.Header>
+            <Frame BackgroundColor="{StaticResource Primary}">
+                <Label FontAttributes="Bold"
+                       Text="Products"
+                       TextColor="White"/>
+            </Frame>
+        </CollectionView.Header>
+        <CollectionView.Footer>
+            <Label FontSize="Title">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Power by:"
+                              TextColor="{StaticResource Tertiary}"/>
+                        <Span Text=" .Net MAUI"
+                              TextColor="{StaticResource Primary}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+           
+        </CollectionView.Footer>
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Horizontal"
-                               ItemSpacing="5"/>
+            <LinearItemsLayout Orientation="Vertical"
+                               />
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="15" WidthRequest="200"
+                <Frame Margin="15"                       
+                      WidthRequest="200"
                        HeightRequest="250">
                     <VerticalStackLayout>
                         <Image Source="{Binding Image}"/>
