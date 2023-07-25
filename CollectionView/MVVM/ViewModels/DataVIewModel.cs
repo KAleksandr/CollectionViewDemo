@@ -13,8 +13,20 @@ namespace CollectionView.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class DataVIewModel
     {
+        private Product selectedProduct;
+       
         public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>();
         public bool IsRefreshing { get; set; }
+        public Product SelectedProduct
+        {
+            get => selectedProduct; 
+            set
+            {
+                selectedProduct = value;
+            }
+        }
+        public List<object> SelectedProducts { get; set; } = new List<object>();
+        
         public ICommand RefreshCommand =>
             new Command(async () =>
             {
@@ -33,8 +45,21 @@ namespace CollectionView.MVVM.ViewModels
             {
                 Products.Remove((Product)p);
             });
+        public ICommand ProductChangetCommand =>
+            new Command(()=>
+            {
+                var selectedProduct =  SelectedProduct;
+            });
+        public ICommand ProductsChangetCommand =>
+            new Command(() => 
+            { 
+                var productsList = SelectedProducts;
+               
+            });
         public DataVIewModel() {
             RefreshItems();
+            SelectedProducts.Add(Products.Skip(5).FirstOrDefault());
+            SelectedProducts.Add(Products.Skip(7).FirstOrDefault());
         }
         private void RefreshItems(int lastIndex = 0)
         {
