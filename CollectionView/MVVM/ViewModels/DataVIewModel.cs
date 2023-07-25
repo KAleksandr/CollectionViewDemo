@@ -53,7 +53,11 @@ namespace CollectionView.MVVM.ViewModels
         public ICommand ProductsChangetCommand =>
             new Command(() => 
             { 
+<<<<<<< HEAD
                 var productsList = SelectedProducts;
+=======
+                
+>>>>>>> 4cf6d8483e1c93d5aa1619b126681bb5e8cbcce8
                
             });
         public DataVIewModel() {
