@@ -53,14 +53,14 @@ namespace CollectionView.MVVM.ViewModels
         public ICommand ProductsChangetCommand =>
             new Command(() => 
             { 
-
-                var productsList = SelectedProducts;
-               
+                var productsList = SelectedProducts;               
             });
         public DataVIewModel() {
             RefreshItems();
             SelectedProducts.Add(Products.Skip(5).FirstOrDefault());
             SelectedProducts.Add(Products.Skip(7).FirstOrDefault());
+
+            SelectedProduct = Products.Skip(2).FirstOrDefault();
         }
         private void RefreshItems(int lastIndex = 0)
         {

@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionView.MVVM.Views.LayautPage"
              Title="LayautPage">
-    <!--<CollectionView ItemsSource="{Binding Products}"
+    <CollectionView ItemsSource="{Binding Products}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedProduct}"
-                    SelectionChangedCommand="{Binding ProductChangetCommand}">-->
-    <CollectionView 
+                    SelectionChangedCommand="{Binding ProductChangetCommand}">
+    <!--<CollectionView 
         ItemsSource="{Binding Products}"
         SelectionMode="Multiple"
         SelectedItems="{Binding SelectedProducts}"
-        SelectionChangedCommand="{Binding ProductsChangetCommand}">
+        SelectionChangedCommand="{Binding ProductsChangetCommand}">-->
         
         <CollectionView.Header>
             <Frame BackgroundColor="{StaticResource Primary}">
