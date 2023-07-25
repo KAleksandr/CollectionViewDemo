@@ -9,4 +9,9 @@ public partial class LayautPage : ContentPage
 		InitializeComponent();
 		BindingContext = new DataVIewModel();
 	}
+
+    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+		var element = e.CurrentSelection;
+    }
 }
