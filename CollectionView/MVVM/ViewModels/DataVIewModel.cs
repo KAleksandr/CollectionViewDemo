@@ -55,6 +55,11 @@ namespace CollectionView.MVVM.ViewModels
             { 
                 var productsList = SelectedProducts;               
             });
+        public ICommand ClearComment =>
+            new Command(() =>
+            {
+                SelectedProduct = null;
+            });
         public DataVIewModel() {
             RefreshItems();
             SelectedProducts.Add(Products.Skip(5).FirstOrDefault());

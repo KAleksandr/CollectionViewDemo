@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionView.MVVM.Views.LayautPage"
              Title="LayautPage">
-    <CollectionView ItemsSource="{Binding Products}"
+    <Grid RowDefinitions=".1*,.9*">
+        <Button Text="Clear selections"
+                Command="{Binding ClearComment}"/>
+        <CollectionView ItemsSource="{Binding Products}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedProduct}"
-                    SelectionChangedCommand="{Binding ProductChangetCommand}">
+                    SelectionChangedCommand="{Binding ProductChangetCommand}"
+                        Grid.Row="1" >
     <!--<CollectionView 
         ItemsSource="{Binding Products}"
         SelectionMode="Multiple"
@@ -51,4 +55,5 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    </Grid>
 </ContentPage>
