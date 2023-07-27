@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionView.MVVM.Views.EmptyView"
              Title="EmptyView">
-    <CollectionView>
+    <CollectionView >
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
+                <!--<x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
@@ -17,9 +18,22 @@
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
+                <x:String>Row Sample</x:String>-->
             </x:Array>
         </CollectionView.ItemsSource>
+        <CollectionView.EmptyView>
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Image HeightRequest="150"
+                           Source="notfound.png"
+                           VerticalOptions="Center"/>
+                    <Label 
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="No result"/>
+                </VerticalStackLayout>
+            </Grid>
+        </CollectionView.EmptyView>
     </CollectionView>
 </ContentPage>
