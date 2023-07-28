@@ -10,6 +10,6 @@ public partial class EmptyView : ContentPage
     private void Switch_Toggled(object sender, ToggledEventArgs e)
     {
 		var isTaggled = e.Value;
-		CollectionView.EmptyView = isTaggled ? Resources["NoResultView"] : Resources["ConnectivityIssue"];
+		CollectionView.EmptyView = isTaggled ? Resources["NoResultsView"] : Resources["ConnectivityIssue"];
     }
 }
