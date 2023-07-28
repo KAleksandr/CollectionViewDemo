@@ -3,7 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionView.MVVM.Views.EmptyView"
              Title="EmptyView">
-    <CollectionView >
+    <ContentPage.Resources>
+        <ContentView x:Key="NoResultsView">
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Image HeightRequest="150"
+                           Source="notfound.png"
+                           VerticalOptions="Center"/>
+                    <Label 
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="No result"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentView>
+        <ContentView x:Key="ConnectivityIssue">
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Image HeightRequest="150"
+                           Source="no_internet.png"
+                           VerticalOptions="Center"/>
+                    <Label 
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="Check your internet connection"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentView>
+    </ContentPage.Resources>
+    <Grid RowDefinitions=".2*,.8*">
+        <HorizontalStackLayout>
+            <Label Text="Toogle EmptyViews"/>
+            <Switch Toggled="Switch_Toggled"/>
+        </HorizontalStackLayout>
+   
+    <CollectionView Grid.Row="1" x:Name="CollectionView">
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
                 <!--<x:String>Row Sample</x:String>
@@ -21,19 +57,9 @@
                 <x:String>Row Sample</x:String>-->
             </x:Array>
         </CollectionView.ItemsSource>
-        <CollectionView.EmptyView>
-            <Grid>
-                <VerticalStackLayout VerticalOptions="Center">
-                    <Image HeightRequest="150"
-                           Source="notfound.png"
-                           VerticalOptions="Center"/>
-                    <Label 
-                        FontAttributes="Bold"
-                        FontSize="Large"
-                        HorizontalTextAlignment="Center"
-                        Text="No result"/>
-                </VerticalStackLayout>
-            </Grid>
-        </CollectionView.EmptyView>
-    </CollectionView>
+            <CollectionView.EmptyView/>
+
+
+        </CollectionView>
+    </Grid>
 </ContentPage>
