@@ -7,6 +7,7 @@
         <Button Text="Manual Scrolling"
             Clicked="Button_Clicked"/>
         <CollectionView IsGrouped="True" ItemsSource="{Binding Products}" Scrolled="CollectionView_Scrolled"
+                        ItemsUpdatingScrollMode="KeepLastItemInView"
                         x:Name="collectionView"
                         Grid.Row="1">
         <CollectionView.ItemsLayout>
