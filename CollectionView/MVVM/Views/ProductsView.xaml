@@ -11,7 +11,7 @@
                         x:Name="collectionView"
                         Grid.Row="1">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
+            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" SnapPointsType="MandatorySingle" SnapPointsAlignment="Start"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate >
