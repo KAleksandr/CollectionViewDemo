@@ -10,6 +10,7 @@ public partial class App : Application
 
 		//MainPage = new DataView();
 		//MainPage = new LayautPage();
-		MainPage = new EmptyView();
+		//MainPage = new EmptyView();
+		MainPage = new ProductsView();
 	}
 }
