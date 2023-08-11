@@ -3,7 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionView.MVVM.Views.ProductsView"
              Title="ProductsView">
-    <CollectionView IsGrouped="True" ItemsSource="{Binding Products}">
+    <Grid RowDefinitions=".1*,.9*">
+        <Button Text="Manual Scrolling"
+            Clicked="Button_Clicked"/>
+        <CollectionView IsGrouped="True" ItemsSource="{Binding Products}" Scrolled="CollectionView_Scrolled"
+                        x:Name="collectionView"
+                        Grid.Row="1">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
         </CollectionView.ItemsLayout>
@@ -11,8 +16,8 @@
             <DataTemplate >
                 <Frame BackgroundColor="White" CornerRadius="15">
                     <VerticalStackLayout>
-                        <Image Source="{Binding Image}"/>
-                        <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Id}"/>
+                            <Label Text="{Binding Name}"/>
                         <Label Text="{Binding Price}"/>
                     </VerticalStackLayout>
                 </Frame>
@@ -34,4 +39,6 @@
             </DataTemplate>
         </CollectionView.GroupFooterTemplate>
     </CollectionView>
+
+    </Grid>
 </ContentPage>
